@@ -1,8 +1,12 @@
+import HomePage from "./pages/HomePage"
+import './styles/global.css';
 
 
 const App = () => {
   return (
-    <h1>Welcome to my Xmas-Shop</h1>
+    <>
+    <HomePage/>
+    </>
   )
 }
 
