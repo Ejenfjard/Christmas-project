@@ -1,52 +1,34 @@
+
 import { IProduct } from "../models/IProduct"; 
-import styled from 'styled-components';
+import AddToCartBtn from "./UI/AddToCartBtn";
+import Card from "./UI/Card";
+import CardDetails from "./UI/CardDetails";
+import Image from "./UI/Image";
+import { Link } from "react-router-dom";
+
 
 type ItemProps = {
-    product: IProduct; 
+  product: IProduct; 
 };
 
-
 const Item = ({ product }: ItemProps) => {
-
-    
-
   return (
-    <ProductCard>
-    <ProductInfo>
-    <h2>{product.name}</h2>
-    <p>{product.description}</p>
-    <p>{product.price} SEK</p>
-    </ProductInfo>
-    <ProductImage src="/xmasImage.jpg" alt="Julprodukt" />
-</ProductCard>
-  ); 
-}; 
+    <Card>
+      <Link to={`/products/${product.id}`} style={{ textDecoration: "none", color: "inherit" }}>
+        <Image category={product.category} variant="productList" />
+        <CardDetails name={product.name} price={product.price} />
+        <div className="button-wrapper">
+        <AddToCartBtn $showText={false} product={product}/>
+        </div>
+      </Link>
+    </Card>
+  );
+};
+
+export default Item;
 
 
 
 
-export default Item; 
 
-// Definiera en Styled Component för produktkortet
-const ProductCard = styled.div`
-  width: 300px;
-  height: 500px;
-  border-radius: 8px;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-  display: flex;
-  flex-direction: column; 
-  align-items: center; /* Vertikal centrering */
-  justify-content: center; /* Horisontell centrering */
-  background-color: #f9f9f9; /* Bakgrund för kontrast */
-`;
 
-const ProductInfo = styled.div`
-  text-align: center;
-  padding: 8px;
-`;
-
-const ProductImage = styled.img`
-  width: 70%;
-  height: 50%;
-  object-fit: cover;
-`;

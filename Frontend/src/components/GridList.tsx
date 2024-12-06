@@ -21,16 +21,16 @@ export default GridList;
 
 const GridSection = styled.section`
   display: grid;
-  grid-template-columns: repeat(1, 1fr); /* Standard: 1 kolumn för mobiler */
-  gap: 16px; /* Avstånd mellan grid-elementen */
+  grid-template-columns: repeat(2, 1fr); /* 2 kolumner för mobile */
+  gap: 16px;
 
   /* För tablet (minst 768px) */
   @media (min-width: ${breakpoints.tablet}) {
-    grid-template-columns: repeat(2, 1fr); /* 2 kolumner på tablet */
+    grid-template-columns: repeat(3, 1fr); /* 3 kolumner för tablet */
   }
 
   /* För desktop (minst 1200px) */
   @media (min-width: ${breakpoints.desktop}) {
-    grid-template-columns: repeat(3, 1fr); /* 3 kolumner på desktop */
+    grid-template-columns: repeat(3, 1fr); /* 3 kolumner för desktop */
   }
 `;

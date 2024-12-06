@@ -1,3 +1,8 @@
 /** @format */
+import "@testing-library/jest-dom"; 
+import { server } from "./mocks/Server"; 
+import { afterAll, afterEach, beforeAll } from "vitest";
 
-import "@testing-library/jest-dom";
+beforeAll(() => server.listen()); 
+afterEach(() => server.resetHandlers());
+afterAll(() => server.close()); 
